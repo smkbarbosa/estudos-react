@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { URL_API } from "./../../services/base";
+import { consultarResumo } from "../../services/resumo"
 
 class Resumo extends Component {
     // permite que um componente mais externo passe algum parametro para o componente Resumo através das propriedades (props)
@@ -27,11 +27,10 @@ class Resumo extends Component {
     // Metodo de ciclo de vida do componente
 
     componentDidMount(){
-        fetch(URL_API + "/resumo").then(
-            resultado => resultado.json().then(
+       consultarResumo().then(
                 dados => this.setState(dados)
             )
-        );
+        ;
         //this.setState vai mesclar os parametros com os dados definidos acima
     }
 

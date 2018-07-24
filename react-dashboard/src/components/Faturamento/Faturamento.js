@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { URL_API } from "./../../services/base";
+import { consultarFaturamento } from "./../../services/faturamento";
 
 class Faturamento extends Component {
     // permite que um componente mais externo passe algum parametro para o componente Resumo através das propriedades (props)
@@ -12,11 +12,9 @@ class Faturamento extends Component {
         }
 
     componentDidMount(){
-        fetch(URL_API + "/faturamento").then(
-            resultado => resultado.json().then(
+        consultarFaturamento().then(
                 dados => this.setState(dados)
-            )
-        );
+            );
         //this.setState vai mesclar os parametros com os dados definidos acima
     }
 
