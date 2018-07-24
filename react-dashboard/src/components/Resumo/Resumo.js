@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { URL_API } from "./../../services/base";
 
 class Resumo extends Component {
     // permite que um componente mais externo passe algum parametro para o componente Resumo através das propriedades (props)
@@ -26,7 +27,7 @@ class Resumo extends Component {
     // Metodo de ciclo de vida do componente
 
     componentDidMount(){
-        fetch("http://www.devup.com.br/php/api-dashboard/api/resumo").then(
+        fetch(URL_API + "/resumo").then(
             resultado => resultado.json().then(
                 dados => this.setState(dados)
             )

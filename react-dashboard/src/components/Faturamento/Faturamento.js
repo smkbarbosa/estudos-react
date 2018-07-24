@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { URL_API } from "./../../services/base";
 
 class Faturamento extends Component {
     // permite que um componente mais externo passe algum parametro para o componente Resumo através das propriedades (props)
@@ -11,7 +12,7 @@ class Faturamento extends Component {
         }
 
     componentDidMount(){
-        fetch("http://www.devup.com.br/php/api-dashboard/api/faturamento").then(
+        fetch(URL_API + "/faturamento").then(
             resultado => resultado.json().then(
                 dados => this.setState(dados)
             )
